@@ -41,8 +41,17 @@ jobs:
         with:
           path: ~/.npm
           key: npm-cache-${{ hashFiles('frontend/package-lock.json') }}
+          
+      - name: Set up MutationObserver
+        run: |
+          echo "global.MutationObserver = class { constructor(callback) { this.callback = callback; } observe() {} disconnect() {}; };" > setupTests.js
+
+      - name: Run tests
+        run: cd starter/frontend && npm test
+        
       - name: Install dependencies
         run: cd starter/frontend && npm ci
+        
       - name: Run tests
         run: cd starter/frontend && npm test
   build:
