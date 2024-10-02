@@ -1,5 +1,4 @@
 import React, { useState, useEffect } from 'react';
-import PropTypes from 'prop-types';
 import axios from 'axios';
 
 function MovieList({ onMovieClick }) {
@@ -21,9 +20,5 @@ function MovieList({ onMovieClick }) {
     </ul>
   );
 }
-
-MovieList.propTypes = {
-  onMovieClick: PropTypes.func.isRequired,
-};
 
 export default MovieList;
