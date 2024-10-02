@@ -45,7 +45,7 @@ jobs:
       - name: Set up MutationObserver
         run: |
           echo "global.MutationObserver = class { constructor(callback) { this.callback = callback; } observe() {} disconnect() {}; };" > setupTests.js
-
+          
       - name: Run tests
         run: cd starter/frontend && npm test
         
